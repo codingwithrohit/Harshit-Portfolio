@@ -208,6 +208,133 @@ document.querySelectorAll('.gallery-item, .gallery-item-small').forEach(item => 
     });
 });
 
+// === LIGHTBOX GALLERY ===
+let currentImageIndex = 0;
+const galleryImages = [
+    // Add your image paths here
+    'images/bts-1.jpg',
+    'images/bts-2.jpg',
+    'images/bts-3.jpg',
+    'images/bts-4.jpg',
+    'images/bts-5.jpg',
+    'images/bts-6.jpg',
+    // Add more images...
+];
+
+function openLightbox(index) {
+    currentImageIndex = index;
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const caption = document.getElementById('lightbox-caption');
+    
+    lightbox.classList.add('active');
+    document.body.style.overflow = 'hidden'; // Prevent scrolling
+    
+    // Check if we have actual images or placeholders
+    const galleryItem = document.querySelectorAll('.gallery-item-main')[index];
+    const img = galleryItem.querySelector('img');
+    
+    if (img) {
+        lightboxImg.src = img.src;
+    } else {
+        // Placeholder mode
+        lightboxImg.src = 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600"><rect width="800" height="600" fill="%23ff0055" opacity="0.1"/><text x="50%" y="50%" text-anchor="middle" fill="%23ffffff" font-size="24" font-family="Arial">Photo ' + (index + 1) + '</text></svg>';
+    }
+    
+    caption.textContent = `Photo ${index + 1} of ${document.querySelectorAll('.gallery-item-main').length}`;
+}
+
+function closeLightbox() {
+    const lightbox = document.getElementById('lightbox');
+    lightbox.classList.remove('active');
+    document.body.style.overflow = ''; // Restore scrolling
+}
+
+function changeImage(direction) {
+    const totalImages = document.querySelectorAll('.gallery-item-main').length;
+    currentImageIndex += direction;
+    
+    // Loop around
+    if (currentImageIndex >= totalImages) {
+        currentImageIndex = 0;
+    } else if (currentImageIndex < 0) {
+        currentImageIndex = totalImages - 1;
+    }
+    
+    openLightbox(currentImageIndex);
+}
+
+// Close lightbox on ESC key
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        closeLightbox();
+    } else if (e.key === 'ArrowRight') {
+        changeImage(1);
+    } else if (e.key === 'ArrowLeft') {
+        changeImage(-1);
+    }
+});
+
+// Close lightbox when clicking outside the image
+document.getElementById('lightbox')?.addEventListener('click', (e) => {
+    if (e.target.id === 'lightbox') {
+        closeLightbox();
+    }
+});
+
+// === VIEW ALL PHOTOS - OPEN LIGHTBOX ===
+document.querySelector('.view-all-btn')?.addEventListener('click', function() {
+    openLightbox(0); // Opens lightbox at first photo
+});
+
+// === VIEW ALL PHOTOS FUNCTIONALITY ===
+// document.querySelector('.view-all-btn')?.addEventListener('click', function() {
+//     const galleryGrid = document.querySelector('.gallery-grid-main');
+//     const hiddenItems = galleryGrid.querySelectorAll('.gallery-item-main.hidden-item');
+//     const buttonText = this.querySelector('span');
+    
+//     if (hiddenItems.length > 0) {
+//         // Show hidden items
+//         hiddenItems.forEach(item => {
+//             item.classList.remove('hidden-item');
+//             item.style.animation = 'fadeInUp 0.5s ease forwards';
+//         });
+//         buttonText.textContent = 'Show Less';
+//     } else {
+//         // Hide items after 6th
+//         const allItems = galleryGrid.querySelectorAll('.gallery-item-main');
+//         allItems.forEach((item, index) => {
+//             if (index >= 6) {
+//                 item.classList.add('hidden-item');
+//             }
+//         });
+//         buttonText.textContent = 'View All Photos';
+        
+//         // Scroll back to gallery
+//         document.getElementById('gallery').scrollIntoView({ behavior: 'smooth', block: 'start' });
+//     }
+// });
+
+// Add CSS animation for fade in
+// const style = document.createElement('style');
+// style.textContent = `
+//     @keyframes fadeInUp {
+//         from {
+//             opacity: 0;
+//             transform: translateY(30px);
+//         }
+//         to {
+//             opacity: 1;
+//             transform: translateY(0);
+//         }
+//     }
+    
+//     .gallery-item-main.hidden-item {
+//         display: none;
+//     }
+// `;
+// document.head.appendChild(style);
+
 // === CONSOLE EASTER EGG ===
 console.log('%c🎬 HARSHIT - FILMMAKER', 'font-size: 20px; font-weight: bold; color: #ff0055;');
 console.log('%cInterested in how this was made? Let\'s connect!', 'font-size: 14px; color: #00d4ff;');
