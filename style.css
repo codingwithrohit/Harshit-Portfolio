@@ -1242,6 +1242,13 @@ section {
     font-weight: 500;
 }
 
+.contact-icon img {
+    width: 40px;
+    height: 40px;
+    fill: #9ca3af;
+    transition: fill 0.25s ease, transform 0.25s ease;
+}
+
 .contact-item a:hover {
     color: var(--primary);
 }
