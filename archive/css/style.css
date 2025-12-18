@@ -1040,7 +1040,9 @@ section {
     position: relative;
     animation: miniClap 2s ease-in-out infinite;
 }
-
+.mini-clapper .mini-clapper-top{
+    display: none;
+}
 @keyframes miniClap {
     0%, 50%, 100% { transform: rotateX(0deg); }
     25% { transform: rotateX(-15deg); }
@@ -1238,6 +1240,13 @@ section {
     font-size: 1rem;
     transition: var(--transition);
     font-weight: 500;
+}
+
+.contact-icon img {
+    width: 40px;
+    height: 40px;
+    fill: #9ca3af;
+    transition: fill 0.25s ease, transform 0.25s ease;
 }
 
 .contact-item a:hover {
