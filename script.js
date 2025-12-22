@@ -287,6 +287,19 @@ document.querySelector('.view-all-btn')?.addEventListener('click', function() {
     openLightbox(0); // Opens lightbox at first photo
 });
 
+// Play Google Drive Video on Thumbnail Click
+function playDriveVideo(thumbnail) {
+    const videoContainer = thumbnail.parentElement;
+    const iframe = videoContainer.querySelector('iframe');
+    
+    // Set the Drive video source
+    iframe.src = 'https://drive.google.com/file/d/1LfXDlO0shvOJ8W44xdYTgeQYRmVkmJxL/preview';
+    
+    // Hide thumbnail, show video
+    thumbnail.style.display = 'none';
+    iframe.style.display = 'block';
+}
+
 // === VIEW ALL PHOTOS FUNCTIONALITY ===
 // document.querySelector('.view-all-btn')?.addEventListener('click', function() {
 //     const galleryGrid = document.querySelector('.gallery-grid-main');

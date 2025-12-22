@@ -130,15 +130,16 @@
                 <div class="iifi-video">
                     <div class="video-label">📹 IIFI Experience</div>
                     <!-- OPTION 1: YouTube Video -->
-                    <iframe src="https://drive.google.com/file/d/1LfXDlO0shvOJ8W44xdYTgeQYRmVkmJxL/preview" frameborder="0" allowfullscreen></iframe>
-                    <!-- OPTION 2: Google Drive Video (Uncomment if using Drive)
-                    <iframe src="https://drive.google.com/file/d/YOUR_FILE_ID/preview" frameborder="0" allowfullscreen></iframe>
-                    -->
-                    
-                    <!-- OPTION 3: Instagram Video (Uncomment if using Instagram)
-                    <blockquote class="instagram-media" data-instgrm-permalink="YOUR_INSTAGRAM_LINK"></blockquote>
-                    <script async src="//www.instagram.com/embed.js"></script>
-                    -->
+                    <!-- <iframe src="https://drive.google.com/file/d/1LfXDlO0shvOJ8W44xdYTgeQYRmVkmJxL/preview" frameborder="0" allowfullscreen></iframe> -->
+                    <div class="custom-thumbnail" onclick="playDriveVideo(this)" style="background-image: url('images/IIFI/IIFI_Thumbnail.PNG');">
+            <div class="play-button">
+                <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+                    <circle cx="40" cy="40" r="40" fill="rgba(255, 0, 85, 0.9)"/>
+                    <path d="M32 25L55 40L32 55V25Z" fill="white"/>
+                </svg>
+            </div>
+        </div>
+        <iframe id="drive-video-iifi-experience" src="" frameborder="0" allowfullscreen style="display:none;"></iframe>
                 </div>
                 
                 <!-- Photo Gallery -->
