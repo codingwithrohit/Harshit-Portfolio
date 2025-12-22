@@ -9,14 +9,25 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     
     <!-- OPTIMIZED Font Loading -->
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@300;400;500;600;700&display=swap&subset=latin" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@400;600;700&display=swap&subset=latin" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet"></noscript>
     <!-- AOS Animation Library -->
-    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" as="style">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
-    
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet"></noscript>
+
+
+    <style>
+    /* Critical CSS - Loads first */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0a0a0a; color: #ffffff; }
+    .loader { position: fixed; top: 0; left: 0; width: 100%; height: 100vh; background: #0a0a0a; display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 10000; }
+    .loader.hidden { opacity: 0; visibility: hidden; transition: opacity 0.5s, visibility 0.5s; }
+    nav { position: fixed; top: 0; width: 100%; padding: 1.5rem 5%; z-index: 1000; background: rgba(10, 10, 10, 0.5); }
+    #hero { height: 100vh; display: flex; align-items: center; justify-content: center; }
+    </style>
     <!-- Custom CSS -->
     <link rel="stylesheet" href="style.css">
+
 </head>
 <body>
     
@@ -387,7 +398,7 @@
                     <div class="gallery-img-placeholder">
                         <!-- <span class="gallery-placeholder-icon">📸</span>
                         <span class="gallery-placeholder-text">BTS Photo 1</span> -->
-                        <img src="images/gallery/1.JPG" loading="lazy"/>
+                        <img src="images/gallery/1.jpg" loading="lazy" width="1920" height="1080"/>
                     </div>
                     <!-- When ready: <img src="images/bts-1.jpg" alt="Behind the scenes"> -->
                      
@@ -422,7 +433,7 @@
                 <!-- Gallery Item 4 -->
                 <div class="gallery-item-main" onclick="openLightbox(3)">
                     <div class="gallery-img-placeholder">
-                        <img src="images/gallery/4.JPG" loading="lazy"/>
+                        <img src="images/gallery/4.jpg" loading="lazy"/>
                     </div>
                     <div class="gallery-overlay">
                         <span class="gallery-icon">🔍</span>
@@ -444,7 +455,7 @@
                 <!-- Gallery Item 6 -->
                 <div class="gallery-item-main" onclick="openLightbox(5)">
                     <div class="gallery-img-placeholder">
-                        <img src="images/gallery/6.JPG" loading="lazy"/>
+                        <img src="images/gallery/6.jpg" loading="lazy"/>
                     </div>
                     <div class="gallery-overlay">
                         <span class="gallery-icon">🔍</span>
@@ -455,7 +466,7 @@
                 <!-- Gallery Item 7 -->
                 <div class="gallery-item-main" onclick="openLightbox(6)">
                     <div class="gallery-img-placeholder">
-                        <img src="images/gallery/7.JPG"/>
+                        <img src="images/gallery/7.jpg"/>
                     </div>
                     <div class="gallery-overlay">
                         <span class="gallery-icon">🔍</span>
