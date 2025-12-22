@@ -12,12 +12,35 @@ AOS.init({
 });
 
 // === PAGE LOADER ===
+// window.addEventListener('load', () => {
+//     setTimeout(() => {
+//         const loader = document.getElementById('loader');
+//         loader.classList.add('hidden');
+//     }, 800);
+// });
+// === SMART PAGE LOADER ===
+let loaderTimeout;
+
+// Hide loader when page is fully loaded
 window.addEventListener('load', () => {
-    setTimeout(() => {
-        const loader = document.getElementById('loader');
-        loader.classList.add('hidden');
-    }, 2000);
+    hideLoader();
 });
+
+// Backup: Hide loader after max 1.5 seconds even if not fully loaded
+loaderTimeout = setTimeout(() => {
+    hideLoader();
+}, 1500);
+
+function hideLoader() {
+    clearTimeout(loaderTimeout);
+    const loader = document.getElementById('loader');
+    loader.classList.add('hidden');
+}
+
+// Hide loader if content is already visible (for cached pages)
+if (document.readyState === 'complete') {
+    hideLoader();
+}
 
 // === NAVIGATION SCROLL EFFECT ===
 const navbar = document.getElementById('navbar');
