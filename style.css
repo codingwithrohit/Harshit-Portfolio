@@ -1299,11 +1299,23 @@ footer p {
 
     .work-item,
     .work-item.reverse {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr !important;
     }
 
     .work-item.reverse .work-video {
+        order: 1 !important; /* Video always comes first on mobile */
+    }
+
+    .work-item.reverse .work-info {
+        order: 2 !important; /* Info always comes second on mobile */
+    }
+    
+    .work-item .work-video {
         order: 1;
+    }
+    
+    .work-item .work-info {
+        order: 2;
     }
 }
 
