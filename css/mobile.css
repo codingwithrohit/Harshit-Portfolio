@@ -1,0 +1,622 @@
+/* ==========================================
+   HARSHIT - FILMMAKER PORTFOLIO
+   css/mobile.css — Mobile Experience
+   
+   Breakpoints used:
+   480px  — small phones (iPhone SE etc.)
+   768px  — tablets / large phones
+   1024px — small laptops / iPad landscape
+   ========================================== */
+
+
+/* ============================================================
+   1. GLOBAL / BASE
+   ============================================================ */
+@media (max-width: 768px) {
+
+    /* Prevent horizontal overflow globally */
+    html, body {
+        overflow-x: hidden;
+        width: 100%;
+    }
+
+    /* Tighten section padding across the board */
+    section {
+        padding: 4rem 1.2rem;
+        min-height: auto;
+    }
+
+    /* Section headers — tighter margin */
+    .section-header {
+        margin-bottom: 3rem;
+    }
+
+    .section-title {
+        font-size: clamp(2.2rem, 10vw, 3.5rem);
+        letter-spacing: 2px;
+    }
+
+    .section-number {
+        font-size: 0.85rem;
+    }
+
+    .section-underline {
+        width: 60px;
+    }
+}
+
+
+/* ============================================================
+   2. NAVIGATION
+   ============================================================ */
+@media (max-width: 768px) {
+
+    nav {
+        padding: 1rem 5%;
+    }
+
+    .logo {
+        font-size: 1.5rem;
+    }
+
+    /* Nav menu — full screen overlay */
+    .nav-menu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 100%;          /* Full width on mobile, not 70% */
+        height: 100vh;
+        background: rgba(10, 10, 10, 0.98);
+        backdrop-filter: blur(20px);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 2.5rem;
+        transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        z-index: 1000;
+    }
+
+    .nav-menu.active {
+        right: 0;
+    }
+
+    .nav-menu a {
+        font-size: 1.3rem;   /* Larger tap targets */
+        letter-spacing: 3px;
+    }
+
+    .hamburger {
+        display: flex;
+        z-index: 1001;        /* Always above the menu overlay */
+    }
+}
+
+
+/* ============================================================
+   3. HERO SECTION
+   ============================================================ */
+@media (max-width: 768px) {
+
+    #hero {
+        padding: 0 1.2rem;
+        text-align: center;
+    }
+
+    .hero-title {
+        font-size: clamp(3.5rem, 18vw, 5.5rem);
+        letter-spacing: 4px;
+        margin-bottom: 1.5rem;
+    }
+
+    .hero-subtitle-wrapper {
+        gap: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .subtitle-line {
+        width: 25px;
+    }
+
+    .hero-subtitle {
+        font-size: clamp(0.75rem, 3.5vw, 1rem);
+        letter-spacing: 2px;
+    }
+
+    .hero-description {
+        font-size: 0.95rem;
+        margin-bottom: 2rem;
+        padding: 0 0.5rem;
+    }
+
+    .hero-cta {
+        padding: 0.9rem 2rem;
+        font-size: 0.85rem;
+    }
+
+    .scroll-indicator {
+        bottom: 1.5rem;
+    }
+
+    /* Reduce floating clappers — less clutter */
+    .clapper-1 { font-size: 1.5rem; top: 10%; left: 5%; }
+    .clapper-2 { font-size: 1.5rem; top: 70%; right: 5%; }
+    .clapper-3 { display: none; }
+}
+
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: clamp(3rem, 20vw, 4.5rem);
+    }
+}
+
+
+/* ============================================================
+   4. IIFI SECTION
+   ============================================================ */
+@media (max-width: 768px) {
+
+    .iifi-section {
+        padding: 4rem 1.2rem;
+    }
+
+    .iifi-container {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+
+    .iifi-title {
+        font-size: clamp(2rem, 9vw, 3rem);
+    }
+
+    .iifi-subtitle {
+        font-size: 1rem;
+    }
+
+    .iifi-description p {
+        font-size: 0.95rem;
+    }
+
+    .iifi-details {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+
+    .detail-item {
+        font-size: 0.85rem;
+    }
+
+    /* Video thumbnail play button — smaller on mobile */
+    .custom-thumbnail .play-button svg {
+        width: 56px;
+        height: 56px;
+    }
+}
+
+
+/* ============================================================
+   5. ABOUT SECTION
+   ============================================================ */
+@media (max-width: 768px) {
+
+    .about-container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    /* Hide the heavy 3D animation — too slow on mobile */
+    .about-image-wrapper {
+        display: none;
+    }
+
+    .about-text {
+        font-size: 1rem;
+    }
+
+    .about-text p {
+        margin-bottom: 1.2rem;
+    }
+
+    /* Stats — 3 columns still work on mobile, just tighter */
+    .stats {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+        margin-top: 2rem;
+    }
+
+    .stat-item {
+        padding: 1.2rem 0.5rem;
+    }
+
+    .stat-number {
+        font-size: 2rem;
+    }
+
+    .stat-label {
+        font-size: 0.7rem;
+    }
+}
+
+@media (max-width: 480px) {
+    /* On very small screens, stack stats */
+    .stats {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .stat-item {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+        text-align: left;
+        padding: 1rem 1.2rem;
+    }
+
+    .stat-number {
+        font-size: 2.5rem;
+        min-width: 80px;
+    }
+}
+
+
+/* ============================================================
+   6. WORKS SECTION
+   ============================================================ */
+@media (max-width: 768px) {
+
+    .works-grid {
+        gap: 3rem;
+    }
+
+    .work-item,
+    .work-item.reverse {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    /* Always: video first, info second */
+    .work-item .work-video,
+    .work-item.reverse .work-video   { order: 1 !important; }
+    .work-item .work-info,
+    .work-item.reverse .work-info    { order: 2 !important; }
+
+    .work-number {
+        font-size: 3.5rem;
+        margin-bottom: -0.5rem;
+    }
+
+    .work-info h3 {
+        font-size: 1.8rem;
+        letter-spacing: 1px;
+    }
+
+    .work-info p {
+        font-size: 0.95rem;
+    }
+
+    .work-meta {
+        gap: 0.5rem;
+    }
+
+    .meta-tag {
+        font-size: 0.7rem;
+        padding: 0.35rem 0.8rem;
+    }
+
+    /* Synopsis text — reduce padding */
+    .work-synopsis p {
+        padding: 1rem;
+        font-size: 0.9rem;
+    }
+
+    .read-more-btn {
+        font-size: 0.8rem;
+        padding: 0.5rem 1rem;
+    }
+}
+
+
+/* ============================================================
+   7. GALLERY SECTION
+   ============================================================ */
+@media (max-width: 768px) {
+
+    .gallery-section {
+        padding: 4rem 1.2rem;
+    }
+
+    /* 2 columns on mobile — better than 1 for photos */
+    .gallery-grid-main {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.75rem;
+        margin-bottom: 2rem;
+    }
+
+    .gallery-item-main {
+        border-radius: 10px;
+    }
+
+    /* Always show overlay on mobile (no hover) */
+    .gallery-overlay {
+        opacity: 0;  /* still tap to open lightbox */
+    }
+
+    .view-all-btn {
+        padding: 0.9rem 2rem;
+        font-size: 0.85rem;
+    }
+
+    .section-description {
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .gallery-grid-main {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.5rem;
+    }
+}
+
+
+/* ============================================================
+   8. LIGHTBOX
+   ============================================================ */
+@media (max-width: 768px) {
+
+    .lightbox-content {
+        flex-direction: column;
+        max-width: 100%;
+        padding: 1rem;
+        gap: 0;
+    }
+
+    .lightbox-img-wrapper {
+        max-height: 70vh;
+        width: 100%;
+    }
+
+    .lightbox-img-wrapper img {
+        max-height: 70vh;
+        border-radius: 8px;
+    }
+
+    .lightbox-caption {
+        font-size: 0.75rem;
+        margin-top: 0.75rem;
+    }
+
+    /* Move prev/next to sides of image, not below */
+    .lightbox-prev,
+    .lightbox-next {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 44px;
+        height: 44px;
+        bottom: auto;
+    }
+
+    .lightbox-prev { left: 0.5rem; }
+    .lightbox-next { right: 0.5rem; }
+
+    .lightbox-close {
+        top: 0.75rem;
+        right: 0.75rem;
+        width: 40px;
+        height: 40px;
+        font-size: 2rem;
+    }
+}
+
+
+/* ============================================================
+   9. ACHIEVEMENTS SECTION
+   ============================================================ */
+@media (max-width: 768px) {
+
+    .achievements-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .achievement-card {
+        padding: 2rem 1.5rem;
+    }
+
+    .achievement-card h3 {
+        font-size: 1.6rem;
+    }
+
+    .achievement-icon {
+        font-size: 2.5rem;
+    }
+
+    /* Disable 3D tilt on touch devices — causes stuck states */
+    .achievement-card:hover {
+        transform: translateY(-8px);
+    }
+}
+
+
+/* ============================================================
+   10. CONTACT SECTION
+   ============================================================ */
+@media (max-width: 768px) {
+
+    .contact-intro {
+        font-size: 1rem;
+        margin-bottom: 2.5rem;
+        padding: 0 0.5rem;
+    }
+
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .contact-item {
+        padding: 1.8rem 1.5rem;
+        /* Horizontal layout on mobile — icon + text side by side */
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+        text-align: left;
+    }
+
+    .contact-icon {
+        font-size: 2rem;
+        margin-bottom: 0;
+        flex-shrink: 0;
+    }
+
+    .contact-icon img {
+        width: 32px;
+        height: 32px;
+    }
+
+    .contact-label {
+        margin-bottom: 0.3rem;
+        font-size: 0.75rem;
+    }
+
+    .contact-item a {
+        font-size: 0.9rem;
+        word-break: break-all;   /* Long email doesn't overflow */
+    }
+
+    /* Disable lift hover — too aggressive on touch */
+    .contact-item:hover {
+        transform: none;
+        border-color: var(--primary);
+    }
+}
+
+
+/* ============================================================
+   11. FOOTER
+   ============================================================ */
+@media (max-width: 768px) {
+
+    footer {
+        padding: 2rem 1.2rem;
+    }
+
+    .footer-logo {
+        font-size: 1.4rem;
+    }
+
+    footer p {
+        font-size: 0.8rem;
+    }
+}
+
+
+/* ============================================================
+   12. FILM REEL DIVIDERS
+   ============================================================ */
+@media (max-width: 480px) {
+    /* Slightly shorter on very small screens */
+    .reel-divider {
+        height: 56px;
+    }
+}
+
+
+/* ============================================================
+   13. LOADER
+   ============================================================ */
+@media (max-width: 768px) {
+
+    .clapperboard {
+        width: 150px;
+    }
+
+    .director {
+        font-size: 0.75rem;
+        letter-spacing: 1px;
+    }
+
+    .loading-text {
+        font-size: 1.5rem;
+    }
+}
+
+
+/* ============================================================
+   14. TOUCH DEVICE OPTIMISATIONS
+   (applies to any touch device, not just small screens)
+   ============================================================ */
+@media (hover: none) {
+
+    /* Remove hover-only states that get "stuck" on touch */
+    .gallery-item-main:hover {
+        transform: none;
+    }
+
+    .gallery-item-main:hover img {
+        transform: none;
+    }
+
+    .stat-item:hover {
+        transform: none;
+        box-shadow: none;
+        border-color: rgba(255,255,255,0.1);
+    }
+
+    .work-video:hover {
+        transform: none;
+        box-shadow: none;
+    }
+
+    /* Show video overlay always on touch (no hover) */
+    .video-overlay {
+        display: none;
+    }
+
+    /* Make tap targets comfortably large */
+    .nav-menu a,
+    .hero-cta,
+    .read-more-btn,
+    .view-all-btn,
+    .lightbox-prev,
+    .lightbox-next,
+    .lightbox-close {
+        min-height: 44px;
+        min-width: 44px;
+    }
+
+    /* Tap feedback instead of hover */
+    .contact-item:active,
+    .achievement-card:active,
+    .gallery-item-main:active {
+        opacity: 0.85;
+        transform: scale(0.98);
+    }
+}
+
+
+/* ============================================================
+   15. LANDSCAPE PHONE (e.g. iPhone rotated)
+   ============================================================ */
+@media (max-width: 768px) and (orientation: landscape) {
+
+    #hero {
+        height: auto;
+        min-height: 100vh;
+        padding: 6rem 1.2rem 3rem;
+    }
+
+    .hero-title {
+        font-size: clamp(2.5rem, 10vw, 4rem);
+    }
+
+    .scroll-indicator {
+        display: none;   /* No room in landscape */
+    }
+
+    section {
+        min-height: auto;
+    }
+}

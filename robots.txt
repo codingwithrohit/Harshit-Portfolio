@@ -1,0 +1,11 @@
+# ==========================================
+# HARSHIT - FILMMAKER PORTFOLIO
+# robots.txt
+# ==========================================
+
+# Allow all search engine crawlers
+User-agent: *
+Allow: /
+
+# Point to sitemap
+Sitemap: https://harshit-is-filming.netlify.app/sitemap.xml

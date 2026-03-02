@@ -1,0 +1,56 @@
+# ==========================================
+# HARSHIT - FILMMAKER PORTFOLIO
+# .gitignore
+# ==========================================
+
+# ── OS Files ──────────────────────────────
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# ── Editor / IDE ──────────────────────────
+.vscode/settings.json
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# ── Large Raw Media (don't commit to Git) ─
+# Keep compressed/web-optimized images only
+images/raw/
+images/originals/
+*.psd
+*.ai
+*.xd
+*.fig
+*.mp4
+*.mov
+*.avi
+*.mkv
+*.wmv
+*.prproj
+*.aep
+
+# ── Temp / Log Files ──────────────────────
+*.log
+*.tmp
+*.temp
+npm-debug.log*
+
+# ── Node (if you ever add a build step) ───
+node_modules/
+dist/
+.env
+.env.local
+
+# ── Sensitive / Private ───────────────────
+private/
+drafts/
+passwords.txt
