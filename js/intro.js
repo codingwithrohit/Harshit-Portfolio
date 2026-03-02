@@ -85,6 +85,17 @@
         }
         /* Lock scroll while iris is active */
         body.iris-active { overflow: hidden !important; }
+        /* Hide body until iris overlay takes control */
+        body {
+            visibility: hidden;
+        }
+        body.iris-active {
+            visibility: visible;
+            overflow: hidden !important;
+        }
+        body.iris-done {
+            visibility: visible;
+        }
     `;
     document.head.appendChild(style);
 
@@ -181,6 +192,7 @@
     // --- Dismiss ---
     function dismiss(overlay) {
         document.body.classList.remove('iris-active');
+        document.body.classList.add('iris-done');
         overlay.classList.add('fading');
         setTimeout(() => overlay.classList.add('gone'), CONFIG.fadeDuration + 50);
     }
@@ -210,7 +222,10 @@
 
     // --- Main init ---
     function init() {
-        document.body.classList.add('iris-active');
+        // Add iris-active the instant body exists — before any paint
+        const addActive = () => document.body.classList.add('iris-active');
+        if (document.body) addActive();
+        else document.addEventListener('DOMContentLoaded', addActive);
 
         const overlay = buildOverlay();
         const { blades, ringEls, bladeAngle, MAX_R } = buildSVG();
